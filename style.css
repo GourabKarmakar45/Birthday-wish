@@ -1,0 +1,196 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #ffeef4;
+  color: #333;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.section {
+  padding: 90px 40px;
+}
+
+.hidden {
+  display: none;
+}
+
+h1, h2 {
+  color: #e91e63;
+}
+
+h1 {
+  font-size: 3.4rem;
+  margin-bottom: 10px;
+}
+
+p{
+    font-size: 1.4rem;
+    margin-bottom: 7px;
+}
+
+h2  {
+  font-size:2rem;
+  margin-bottom:60px;
+  color: #ff4081;
+}
+
+.btn {
+  background: #ff4b77;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-top: 60px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #ff295b;
+}
+
+/* --- Gallery --- */
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.img-card {
+  position: relative;
+  overflow: hidden;
+  width: 240px;
+  height: 330px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background: #fff;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.img-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.4s ease;
+}
+
+.memory-text {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 87, 136, 0.9);
+  color: #fff;
+  font-size: 0.95rem;
+  padding: 15px;
+  box-sizing: border-box;
+  border-radius: 0 0 15px 15px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+.img-card:hover .memory-text,
+.img-card.active .memory-text {
+  bottom: 0;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.img-card:hover img,
+.img-card.active img {
+  transform: scale(1.05);
+}
+
+/* Message Box */
+.msg-box {
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+  margin-bottom: 70px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+
+.last-message{
+
+    font-size: 2rem;
+}
+.signature {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #e91e63;
+}
+
+
+
+/* Floating Hearts*/
+.heart {
+  position: fixed;
+  bottom: -20px;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: #ff2f6e;
+  transform: rotate(-45deg);
+  animation: floatHeart 6s linear forwards;
+  opacity: 0.9;
+  z-index: 0;
+}
+
+/* The two circles forming the heart lobes */
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ff2f6e;
+  border-radius: 50%;
+}
+
+/* Left lobe */
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+/* Right lobe - tuned perfectly */
+.heart::after {
+  top: 0;
+  left: 10px;
+}
+
+/* Floating animation */
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) rotate(-45deg) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-50vh) rotate(-45deg) scale(1.1);
+  }
+  100% {
+    transform: translateY(-100vh) rotate(-45deg) scale(0.9);
+    opacity: 0;
+  }
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+  h1 { font-size: 1.8rem; }
+  .gallery { flex-direction: column; align-items: center; }
+  .img-card { width: 80%; max-width: 300px; height: auto; }
+  .memory-text { font-size: 0.9rem; }
+  .btn { font-size: 0.9rem; padding: 10px 20px; }
+}
